@@ -71,7 +71,7 @@ body{
 
 .content{
     background: #ffff;
-    max-width: 50%;
+    max-width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

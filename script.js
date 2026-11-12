@@ -5,7 +5,7 @@ function createBox(parent,text){
     newDiv.style.backgroundColor = '#ffff';
     newDiv.style.textAlign = 'center';
     newDiv.style.paddingTop = '10px';
-    newDiv.style.fontSize = '6px';
+    newDiv.style.fontSize = '3px';
     newDiv.style.aspectRatio = '1/1';
     newDiv.style.color = '#000000';
     newDiv.style.border = 'solid 1px #246a73';
@@ -21,10 +21,9 @@ function createGrid(){
         delGrid();
     }
     const size = askSize();
-    const long = Math.round(Math.sqrt(size))
-    const actSize = Math.pow(long,2);
-    document.documentElement.style.setProperty('--size',long);
-    console.log(`Calculated grid size of ${long} x ${long} become ${actSize}`)
+    const actSize = Math.pow(size,2);
+    document.documentElement.style.setProperty('--size',size);
+    console.log(`Calculated grid size of ${size} x ${size} become ${actSize}`)
     for(let i=1;i<=actSize;i++){
         createBox(content,i);
     }
@@ -32,7 +31,7 @@ function createGrid(){
 }
 
 function askSize(){
-    let size = prompt("Please insert grid size :");
+    let size = prompt("Please insert grid size (max:100) :");
     return size;
 }
 
