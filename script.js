@@ -45,11 +45,20 @@ function randomRGB(){
 const content = document.getElementById("content");
 
 content.addEventListener("mouseover",(event)=>{
-    const targetDiv = event.target.closest('.grid-box');
-    if(!targetDiv) return;
+    const div = event.target.closest('.grid-box');
+    if(!div) return;
 
-    if(!targetDiv.contains(event.relatedTarget)){
-        const {r,g,b} = randomRGB();
-        targetDiv.style.backgroundColor = `rgb(${r},${g},${b})`;
+    if(!div.contains(event.relatedTarget)){
+        if(!div.dataset.baseColor){
+            const {r,g,b} = randomRGB();
+            div.dataset.baseColor = `${r},${g},${b}`;
+        };
+
+        let opacity = parseFloat(div.dataset.opacity || '0.1');
+        opacity = Math.min(opacity + 0.1, 1);
+        div.dataset.opacity = opacity
+
+        div.style.backgroundColor = `rgba(${div.dataset.baseColor},${opacity})`;
+        // div.style.backgroundColor = `rgba(100,100,100,${opacity})`;
     };
 });
