@@ -55,6 +55,7 @@ body{
     border-radius: 16px;
     font-size: 12px;
     font-weight: 900;
+    /* background-color: rgba(66, 42, 66, 0.444); */
 }
 
 .content-bg{
@@ -71,7 +72,7 @@ body{
 
 .content{
     background: #ffff;
-    max-width: 80%;
+    max-width: 55%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -85,5 +86,5 @@ body{
   width: calc(100%/var(--size));
   /* flex: 0 0 6.25%;  */
   aspect-ratio: 1 / 1;
-  border: 1px solid #333;
+  border: 1px solid #98989873;
 }

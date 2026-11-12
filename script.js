@@ -1,6 +1,6 @@
 function createBox(parent,text){
     const newDiv = document.createElement('div');
-    newDiv.textContent = text;
+    // newDiv.textContent = text;
     newDiv.className = 'grid-box';
     newDiv.style.backgroundColor = '#ffff';
     newDiv.style.textAlign = 'center';
@@ -8,7 +8,6 @@ function createBox(parent,text){
     newDiv.style.fontSize = '3px';
     newDiv.style.aspectRatio = '1/1';
     newDiv.style.color = '#000000';
-    newDiv.style.border = 'solid 1px #246a73';
     parent.appendChild(newDiv);
 }
 
@@ -31,19 +30,26 @@ function createGrid(){
 }
 
 function askSize(){
-    let size = prompt("Please insert grid size (max:100) :");
-    return size;
+    const size = prompt("Please insert grid size (max:100) :");
+    const limitSize = size > 100 ? (alert('max size is :100'), 100) : size;
+    return limitSize;
+}
+
+function randomRGB(){
+    const r = Math.floor(Math.random()*256);
+    const g = Math.floor(Math.random()*256);
+    const b = Math.floor(Math.random()*256);
+    return {r,g,b};
 }
 
 const content = document.getElementById("content");
-
 
 content.addEventListener("mouseover",(event)=>{
     const targetDiv = event.target.closest('.grid-box');
     if(!targetDiv) return;
 
     if(!targetDiv.contains(event.relatedTarget)){
-        targetDiv.style.backgroundColor = 'orange';
-        targetDiv.style.color = 'white';
+        const {r,g,b} = randomRGB();
+        targetDiv.style.backgroundColor = `rgb(${r},${g},${b})`;
     };
 });
