@@ -36,9 +36,10 @@ function askSize(){
 }
 
 function randomRGB(){
-    const r = Math.floor(Math.random()*256);
-    const g = Math.floor(Math.random()*256);
-    const b = Math.floor(Math.random()*256);
+    const max = 220;
+    const r = Math.floor(Math.random()*(max+1));
+    const g = Math.floor(Math.random()*(max+1));
+    const b = Math.floor(Math.random()*(max+1));
     return {r,g,b};
 }
 
